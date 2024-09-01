@@ -21,11 +21,12 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         wget https://cdn.azul.com/zulu/bin/zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz && \
         tar zxvf onos-2.5.9.tar.gz && \
         tar zxvf zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz && \
-        unzip org.onosproject.ONOS_Integration_Service.oar && \
         mkdir ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-        cp -vrf app.xml ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-        cp -vrf ./m2/ ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-        touch ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/active && \
+        cp -vrf org.onosproject.ONOS_Integration_Service.oar ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
+        cd ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
+        unzip org.onosproject.ONOS_Integration_Service.oar && \
+        touch ./active && \
+        cd ../../../ && \
         sed -i 's/gui2/gui/g' ./onos-2.5.9/bin/onos-service && \
         mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jdk11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
@@ -40,7 +41,7 @@ RUN apt-get update && apt-get install -y zip wget tar && \
 # Second stage is the runtime environment
 FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.1.13-slim
 
-ENV JAVA_HOME=/src/onos/onos_out/matched_jdk/
+ENV JAVA_HOME=/root/onos/matched_jdk/
 ENV PATH="${PATH}:${JAVA_HOME}/bin/"
 ENV ONOS_APPS=gui
 
