@@ -29,7 +29,10 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         sed -i 's/gui2/gui/g' ./onos-2.5.9/bin/onos-service && \
         mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jdk11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
-        mv ./onos-2.5.9/ ./onos_out/
+        mv ./onos-2.5.9/ ./onos_out/ && \
+        pwd && \
+        ls -al ./onos_out/ && \
+        
 
 # export JAVA_HOME=/home/mao/onos/current_jdk/
 # export PATH=$PATH:$JAVA_HOME/bin/
@@ -37,22 +40,26 @@ RUN apt-get update && apt-get install -y zip wget tar && \
 # Second stage is the runtime environment
 FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.1.13-slim
 
+ENV JAVA_HOME=/src/onos/onos_out/matched_jdk/
+ENV PATH="${PATH}:${JAVA_HOME}/bin/"
+ENV ONOS_APPS=gui
+
 # Change to /root directory
 RUN     mkdir -p /root/onos
 WORKDIR /root/onos
 
 # Install ONOS
-COPY --from=builder /src/tar/ .
+COPY --from=builder /src/onos/onos_out/ .
 
 # Configure ONOS to log to stdout
-RUN sed -ibak '/log4j.rootLogger=/s/$/, stdout/' $(ls -d apache-karaf-*)/etc/org.ops4j.pax.logging.cfg
+# RUN sed -ibak '/log4j.rootLogger=/s/$/, stdout/' $(ls -d apache-karaf-*)/etc/org.ops4j.pax.logging.cfg
 
-LABEL org.label-schema.name="ONOS" \
-      org.label-schema.description="SDN Controller" \
-      org.label-schema.usage="http://wiki.onosproject.org" \
-      org.label-schema.url="http://onosproject.org" \
-      org.label-scheme.vendor="Open Networking Foundation" \
-      org.label-schema.schema-version="1.0"
+# LABEL org.label-schema.name="ONOS" \
+#       org.label-schema.description="SDN Controller" \
+#       org.label-schema.usage="http://wiki.onosproject.org" \
+#       org.label-schema.url="http://onosproject.org" \
+#       org.label-scheme.vendor="Open Networking Foundation" \
+#       org.label-schema.schema-version="1.0"
 
 # Ports
 # 6653 - OpenFlow
@@ -64,5 +71,5 @@ LABEL org.label-schema.name="ONOS" \
 EXPOSE 6653 6640 8181 8101 9876 22
 
 # Get ready to run command
-ENTRYPOINT ["./bin/onos-service"]
+ENTRYPOINT ["./onos-2.5.9/bin/onos-service"]
 CMD ["server"]
