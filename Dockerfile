@@ -21,18 +21,19 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         wget https://cdn.azul.com/zulu/bin/zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz && \
         tar zxvf onos-2.5.9.tar.gz && \
         tar zxvf zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz && \
-        mkdir ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-        cp -vrf org.onosproject.ONOS_Integration_Service.oar ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-        cd ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-        unzip org.onosproject.ONOS_Integration_Service.oar && \
-        touch ./active && \
-        cd ../../../ && \
         sed -i 's/gui2/gui/g' ./onos-2.5.9/bin/onos-service && \
         mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jdk11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
         mv ./onos-2.5.9/ ./onos_out/ && \
         pwd && \
         ls -al ./onos_out/
+
+# mkdir ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
+# cp -vrf org.onosproject.ONOS_Integration_Service.oar ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
+# cd ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
+# unzip org.onosproject.ONOS_Integration_Service.oar && \
+# touch ./active && \
+# cd ../../../ && \
         
 
 # export JAVA_HOME=/home/mao/onos/current_jdk/
