@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         cp -vrf ./m2/ ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
         touch ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/active && \
         sed -i 's/gui2/gui/g' ./onos-2.5.9/bin/onos-service && \
-        mkdir ./onos_out/
+        mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jdk11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
         mv ./onos-2.5.9/ ./onos_out/
 
