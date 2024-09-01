@@ -53,6 +53,9 @@ COPY --from=builder /src/onos/onos_out/ .
 
 # Configure ONOS to log to stdout
 # RUN sed -ibak '/log4j.rootLogger=/s/$/, stdout/' $(ls -d apache-karaf-*)/etc/org.ops4j.pax.logging.cfg
+RUN pwd && \
+        ls -al ./ && \
+        find
 
 # LABEL org.label-schema.name="ONOS" \
 #       org.label-schema.description="SDN Controller" \
