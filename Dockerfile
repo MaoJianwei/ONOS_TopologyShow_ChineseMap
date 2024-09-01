@@ -3,8 +3,8 @@ FROM picoded/ubuntu-openjdk-8-jdk as builder
 MAINTAINER Jianwei Mao <maojianwei2016@126.com>
 
 # Set the environment variables
-ENV HOME /root
-ENV BUILD_NUMBER docker
+ENV HOME=/root
+ENV BUILD_NUMBER=docker
 ENV JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 
 # Copy in the source
@@ -44,7 +44,7 @@ FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.1.13-slim
 
 ENV JAVA_HOME=/root/onos/matched_jdk/
 ENV PATH="${PATH}:${JAVA_HOME}/bin/"
-ENV ONOS_APPS=gui
+ENV ONOS_APPS=gui2
 
 # Change to /root directory
 RUN     mkdir -p /root/onos
