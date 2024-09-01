@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         mv ./zulu11.37.17-ca-jdk11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
         mv ./onos-2.5.9/ ./onos_out/ && \
         pwd && \
-        ls -al ./onos_out/ && \
+        ls -al ./onos_out/
         
 
 # export JAVA_HOME=/home/mao/onos/current_jdk/
