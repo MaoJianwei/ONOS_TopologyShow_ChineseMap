@@ -34,14 +34,7 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         mv ./onos-2.5.9/ ./onos_out/ && \
         pwd && \
         ls -al ./onos_out/
-
-mkdir ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-cp -vrf org.onosproject.ONOS_Integration_Service.oar ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-cd ./onos-2.5.9/apps/org.onosproject.ONOS_Integration_Service/ && \
-unzip org.onosproject.ONOS_Integration_Service.oar && \
-touch ./active && \
-cd ../../../ && \
-        
+       
 
 # export JAVA_HOME=/home/mao/onos/current_jdk/
 # export PATH=$PATH:$JAVA_HOME/bin/
