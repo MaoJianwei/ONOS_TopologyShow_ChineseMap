@@ -50,6 +50,7 @@ RUN apt-get update && apt-get install -y zip wget tar && \
 # Second stage is the runtime environment
 
 FROM ubuntu:18.04
+LABEL org.opencontainers.image.authors="Jianwei Mao <maojianwei2016@126.com>"
 
 ENV JAVA_HOME=/root/onos/matched_jdk/
 ENV PATH="${PATH}:${JAVA_HOME}/bin/"
