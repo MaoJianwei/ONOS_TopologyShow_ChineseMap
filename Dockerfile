@@ -1,6 +1,8 @@
 # First stage is the build environment
 FROM ubuntu:18.04 AS builder
-MAINTAINER Jianwei Mao <maojianwei2016@126.com>
+# MAINTAINER Jianwei Mao <maojianwei2016@126.com>
+LABEL org.opencontainers.image.authors="Jianwei Mao <maojianwei2016@126.com>"
+
 
 # Set the environment variables
 ENV HOME=/root
