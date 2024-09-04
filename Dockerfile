@@ -1,6 +1,6 @@
 # First stage is the build environment
 FROM ubuntu:18.04 AS builder
-# MAINTAINER Jianwei Mao <maojianwei2016@126.com>
+MAINTAINER Jianwei Mao <maojianwei2016@126.com>
 LABEL org.opencontainers.image.authors="Jianwei Mao <maojianwei2016@126.com>"
 
 
@@ -50,6 +50,7 @@ RUN apt-get update && apt-get install -y zip wget tar && \
 # Second stage is the runtime environment
 
 FROM ubuntu:18.04
+MAINTAINER Jianwei Mao <maojianwei2016@126.com>
 LABEL org.opencontainers.image.authors="Jianwei Mao <maojianwei2016@126.com>"
 
 ENV JAVA_HOME=/root/onos/matched_jdk/
