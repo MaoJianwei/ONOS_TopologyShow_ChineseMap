@@ -1,5 +1,5 @@
 # First stage is the build environment
-FROM picoded/ubuntu-openjdk-8-jdk as builder
+FROM ubuntu:18.04 AS builder
 MAINTAINER Jianwei Mao <maojianwei2016@126.com>
 
 # Set the environment variables
