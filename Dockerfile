@@ -40,7 +40,9 @@ RUN apt-get update && apt-get install -y zip wget tar && \
 # export PATH=$PATH:$JAVA_HOME/bin/
 
 # Second stage is the runtime environment
-FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.1.13-slim
+
+# FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.1.13-slim
+FROM alpine:3.20.2
 
 ENV JAVA_HOME=/root/onos/matched_jdk/
 ENV PATH="${PATH}:${JAVA_HOME}/bin/"
@@ -55,9 +57,10 @@ COPY --from=builder /src/onos/onos_out/ .
 
 # Configure ONOS to log to stdout
 # RUN sed -ibak '/log4j.rootLogger=/s/$/, stdout/' $(ls -d apache-karaf-*)/etc/org.ops4j.pax.logging.cfg
-RUN pwd && \
-        ls -al ./ && \
-        find
+
+# RUN pwd && \
+#         ls -al ./ && \
+#         find
 
 # LABEL org.label-schema.name="ONOS" \
 #       org.label-schema.description="SDN Controller" \
