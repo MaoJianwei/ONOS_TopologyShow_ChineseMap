@@ -41,12 +41,11 @@ RUN apt-get update && apt-get install -y zip wget tar && \
 
 # Second stage is the runtime environment
 
-# FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jdk-11.0.1.13-slim
-FROM alpine:3.20.2
+FROM ubuntu:18.04
 
 ENV JAVA_HOME=/root/onos/matched_jdk/
 ENV PATH="${PATH}:${JAVA_HOME}/bin/"
-ENV ONOS_APPS=gui2
+ENV ONOS_APPS=gui
 
 # Change to /root directory
 RUN     mkdir -p /root/onos
