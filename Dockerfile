@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         unzip org.onosproject.ONOS_Integration_Service.oar && \
         touch ./active && \
         cp -vrf ./m2/org/onosproject/* ../../apache-karaf-4.2.14/system/org/onosproject/ && \
+        cd ../../../ && \
 
         rm -rf ./onos-2.5.9/apps/org.onosproject.gui/ && \
         rm -rf ./onos-2.5.9/apache-karaf-4.2.14/system/org/onosproject/onos-web-gui/ && \
@@ -40,8 +41,8 @@ RUN apt-get update && apt-get install -y zip wget tar && \
         unzip org.onosproject.gui.oar && \
         touch ./active && \
         cp -vrf ./m2/org/onosproject/* ../../apache-karaf-4.2.14/system/org/onosproject/ && \
-        
         cd ../../../ && \
+        
         mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jre11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
         mv ./onos-2.5.9/ ./onos_out/ && \
