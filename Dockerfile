@@ -1,5 +1,5 @@
 # First stage is the build environment
-FROM ubuntu:22.04 AS builder
+FROM ubuntu:18.04 AS builder
 MAINTAINER Jianwei Mao <maojianwei2016@126.com>
 LABEL org.opencontainers.image.authors="Jianwei Mao <maojianwei2016@126.com>"
 
@@ -21,7 +21,7 @@ WORKDIR /src/onos
 
 
 
-RUN apt-get update && apt-get install -y git wget zip wget tar build-essential python3 python-is-python3 && \
+RUN apt-get update && apt-get install -y git wget zip wget tar build-essential python && \
         wget https://github.com/bazelbuild/bazel/releases/download/3.7.2/bazel-3.7.2-installer-linux-x86_64.sh && \
         chmod +x bazel-3.7.2-installer-linux-x86_64.sh && \
         ./bazel-3.7.2-installer-linux-x86_64.sh && \
