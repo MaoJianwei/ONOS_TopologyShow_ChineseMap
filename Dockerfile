@@ -32,6 +32,8 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         bazel build onos && \
 
         cd bazel-bin && \
+        ls -al && \
+        ls -al ../ && \
         mv onos.tar.gz ../../ && \
         cd ../../ && \
 
