@@ -30,13 +30,10 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         cd onos && \
         git checkout 2.5.8 && \
         bazel build onos && \
-
-        cd bazel-bin && \
+        cp ./bazel-bin/onos.tar.gz ../ && \
+        cd ../ && \
         ls -al && \
-        ls -al ../ && \
-        mv onos.tar.gz ../../ && \
-        cd ../../ && \
-
+        pwd && \
         
         wget https://cdn.azul.com/zulu/bin/zulu11.37.17-ca-jre11.0.6-linux_x64.tar.gz && \
         tar zxvf onos.tar.gz && \
