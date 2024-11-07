@@ -26,9 +26,6 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         chmod +x bazel-3.7.2-installer-linux-x86_64.sh && \
         ./bazel-3.7.2-installer-linux-x86_64.sh && \
 
-        java --version && \
-        java -version && \
-        
         git clone "https://gerrit.onosproject.org/onos" && \
         cd onos && \
         git checkout 2.5.8 && \
