@@ -31,6 +31,8 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         git checkout 2.5.8 && \
         mv ../0001-support-to-add-tag-to-a-link-for-ONOS_Integration_Service.patch ./ && \
         git apply 0001-support-to-add-tag-to-a-link-for-ONOS_Integration_Service.patch && \
+        git status && \
+        git log -3 && \
         bazel build onos && \
         cp ./bazel-bin/onos.tar.gz ../ && \
         cd ../ && \
