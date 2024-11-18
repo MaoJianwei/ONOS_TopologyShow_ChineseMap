@@ -20,7 +20,7 @@ COPY . /src/onos/
 WORKDIR /src/onos
 
 
-
+RUN lscpu
 RUN apt-get update && apt-get install -y git wget zip wget tar build-essential python && \
         wget https://github.com/bazelbuild/bazel/releases/download/3.7.2/bazel-3.7.2-installer-linux-x86_64.sh && \
         chmod +x bazel-3.7.2-installer-linux-x86_64.sh && \
