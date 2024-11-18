@@ -37,6 +37,10 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         mv ../new_for_compiling_onos/0002-add-the-inaccurate-china-map-AND-enable-auto-login-as-karaf-user.patch ./ && \
         git apply 0002-add-the-inaccurate-china-map-AND-enable-auto-login-as-karaf-user.patch && \
         git status && \
+
+        mv ../new_for_compiling_onos/0003-fix-NullPointerException-for-MaoTag.patch ./ && \
+        git apply 0003-fix-NullPointerException-for-MaoTag.patch && \
+        git status && \
         
         mv ../new_for_compiling_onos/3001-integrate-the-app-of-ONOS_Integration_Service.patch ./ && \
         git apply 3001-integrate-the-app-of-ONOS_Integration_Service.patch && \
