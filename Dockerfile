@@ -29,14 +29,25 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         git clone "https://gerrit.onosproject.org/onos" && \
         cd onos && \
         git checkout 2.5.8 && \
-        mv ../0001-add-the-inaccurate-china-map-enable-auto-login-as-ka.patch ./ && \
-        git apply 0001-add-the-inaccurate-china-map-enable-auto-login-as-ka.patch && \
-        git status && \
-        git log -3 && \
-        mv ../0001-support-to-add-tag-to-a-link-for-ONOS_Integration_Service.patch ./ && \
+        
+        mv ../new_for_compiling_onos/0001-support-to-add-tag-to-a-link-for-ONOS_Integration_Service.patch ./ && \
         git apply 0001-support-to-add-tag-to-a-link-for-ONOS_Integration_Service.patch && \
         git status && \
-        git log -3 && \
+        
+        mv ../new_for_compiling_onos/0002-add-the-inaccurate-china-map-AND-enable-auto-login-as-karaf-user.patch ./ && \
+        git apply 0002-add-the-inaccurate-china-map-AND-enable-auto-login-as-karaf-user.patch && \
+        git status && \
+        
+        mv ../new_for_compiling_onos/3001-integrate-the-app-of-ONOS_Integration_Service.patch ./ && \
+        git apply 3001-integrate-the-app-of-ONOS_Integration_Service.patch && \
+        git status && \
+
+        cd apps/ && \
+        git clone https://github.com/MaoJianwei/ONOS_Integration_Service.git && \
+        ls -al && \
+        find && \
+        cd ../ && \
+                
         bazel build onos && \
         cp ./bazel-bin/onos.tar.gz ../ && \
         cd ../ && \
@@ -48,14 +59,6 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         tar zxvf zulu11.37.17-ca-jre11.0.6-linux_x64.tar.gz && \
         sed -i 's/gui2/gui/g' ./onos-2.5.8/bin/onos-service && \
         
-        mkdir ./onos-2.5.8/apps/org.onosproject.ONOS_Integration_Service/ && \
-        cp -vrf org.onosproject.ONOS_Integration_Service.oar ./onos-2.5.8/apps/org.onosproject.ONOS_Integration_Service/ && \
-        cd ./onos-2.5.8/apps/org.onosproject.ONOS_Integration_Service/ && \
-        unzip org.onosproject.ONOS_Integration_Service.oar && \
-        touch ./active && \
-        cp -vrf ./m2/org/onosproject/* ../../apache-karaf-4.2.14/system/org/onosproject/ && \
-        cd ../../../ && \
-        
         mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jre11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
         mv ./onos-2.5.8/ ./onos_out/ && \
@@ -63,7 +66,13 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         ls -al ./onos_out/
 
 
-
+# mkdir ./onos-2.5.8/apps/org.onosproject.ONOS_Integration_Service/ && \
+# cp -vrf org.onosproject.ONOS_Integration_Service.oar ./onos-2.5.8/apps/org.onosproject.ONOS_Integration_Service/ && \
+# cd ./onos-2.5.8/apps/org.onosproject.ONOS_Integration_Service/ && \
+# unzip org.onosproject.ONOS_Integration_Service.oar && \
+# touch ./active && \
+# cp -vrf ./m2/org/onosproject/* ../../apache-karaf-4.2.14/system/org/onosproject/ && \
+# cd ../../../ && \
 
 # rm -rf ./onos-2.5.8/apps/org.onosproject.gui/ && \
 # rm -rf ./onos-2.5.8/apache-karaf-4.2.14/system/org/onosproject/onos-web-gui/ && \
