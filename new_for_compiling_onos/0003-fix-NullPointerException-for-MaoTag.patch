@@ -1,0 +1,27 @@
+From afa79e195fe1b372438f3d8e171f924e3f19c92f Mon Sep 17 00:00:00 2001
+From: Jianwei Mao <maojianwei2012@126.com>
+Date: Tue, 19 Nov 2024 02:30:14 +0800
+Subject: [PATCH 3/3] fix NullPointerException for MaoTag.
+
+Signed-off-by: Jianwei Mao <maojianwei2012@126.com>
+---
+ .../onosproject/net/statistic/impl/PortStatisticsManager.java  | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/core/net/src/main/java/org/onosproject/net/statistic/impl/PortStatisticsManager.java b/core/net/src/main/java/org/onosproject/net/statistic/impl/PortStatisticsManager.java
+index b12a9af271..ff22a3eb13 100644
+--- a/core/net/src/main/java/org/onosproject/net/statistic/impl/PortStatisticsManager.java
++++ b/core/net/src/main/java/org/onosproject/net/statistic/impl/PortStatisticsManager.java
+@@ -85,6 +85,9 @@ public class PortStatisticsManager implements PortStatisticsService {
+ 
+         if (metricType == MetricType.MAO_TAG) {
+             DataPoint c = current.get(connectPoint);
++            if (c == null || c.stats == null || c.stats.annotations() == null)
++                return null;
++
+             String maoTagValue = c.stats.annotations().value(ANNOTATION_MAO_TAG);
+             String maoTagLevelValue = c.stats.annotations().value(ANNOTATION_MAO_TAG_LEVEL);
+ 
+-- 
+2.34.1
+
