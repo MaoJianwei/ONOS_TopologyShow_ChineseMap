@@ -1,8 +1,8 @@
-From ca1402e430b8dcf2b1341b222b365ceb7465cf3f Mon Sep 17 00:00:00 2001
+From b8d89229122e9957ef45ab98ad9688e42bf12af5 Mon Sep 17 00:00:00 2001
 From: Jianwei Mao <maojianwei2012@126.com>
-Date: Mon, 16 Sep 2024 21:09:58 +0800
-Subject: [PATCH] add the inaccurate china map, enable auto-login as karaf
- user.
+Date: Mon, 18 Nov 2024 23:01:36 +0800
+Subject: [PATCH 2/2] add the inaccurate china map AND enable auto login as
+ karaf user.
 
 Signed-off-by: Jianwei Mao <maojianwei2012@126.com>
 ---

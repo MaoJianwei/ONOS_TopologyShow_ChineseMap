@@ -1,7 +1,8 @@
 From cbf3d46873baa24acf5a4c75b81e13e4124b1612 Mon Sep 17 00:00:00 2001
 From: Jianwei Mao <maojianwei2012@126.com>
 Date: Sun, 10 Nov 2024 01:41:25 +0800
-Subject: [PATCH] support to add tag to a link for ONOS_Integration_Service.
+Subject: [PATCH 1/2] support to add tag to a link for
+ ONOS_Integration_Service.
 
 Signed-off-by: Jianwei Mao <maojianwei2012@126.com>
 ---

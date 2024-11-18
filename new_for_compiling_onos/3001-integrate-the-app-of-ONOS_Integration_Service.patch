@@ -1,0 +1,25 @@
+From 16537cc5a181429a2c9898b62b2dbbbbf13e934e Mon Sep 17 00:00:00 2001
+From: Jianwei Mao <maojianwei2012@126.com>
+Date: Mon, 18 Nov 2024 23:11:51 +0800
+Subject: [PATCH] integrate the app of ONOS_Integration_Service.
+
+Signed-off-by: Jianwei Mao <maojianwei2012@126.com>
+---
+ tools/build/bazel/modules.bzl | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tools/build/bazel/modules.bzl b/tools/build/bazel/modules.bzl
+index 129c301578..e079dcc49a 100644
+--- a/tools/build/bazel/modules.bzl
++++ b/tools/build/bazel/modules.bzl
+@@ -281,6 +281,7 @@ APP_MAP = {
+     "//apps/yang:onos-apps-yang-oar": [],
+     "//web/gui:onos-web-gui-oar": ["sona", "sdfabric"],
+     "//web/gui2:onos-web-gui2-oar": ["stratum", "sdfabric"],
++    "//apps/ONOS_Integration_Service:onos-apps-ONOS_Integration_Service-oar": [],
+ }
+ 
+ #
+-- 
+2.34.1
+
