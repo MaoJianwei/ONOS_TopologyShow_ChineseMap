@@ -29,6 +29,10 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         git clone "https://gerrit.onosproject.org/onos" && \
         cd onos && \
         git checkout 2.5.8 && \
+        mv ../0001-add-the-inaccurate-china-map-enable-auto-login-as-ka.patch ./ && \
+        git apply 0001-add-the-inaccurate-china-map-enable-auto-login-as-ka.patch && \
+        git status && \
+        git log -3 && \
         mv ../0001-support-to-add-tag-to-a-link-for-ONOS_Integration_Service.patch ./ && \
         git apply 0001-support-to-add-tag-to-a-link-for-ONOS_Integration_Service.patch && \
         git status && \
@@ -51,23 +55,26 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         touch ./active && \
         cp -vrf ./m2/org/onosproject/* ../../apache-karaf-4.2.14/system/org/onosproject/ && \
         cd ../../../ && \
-
-        rm -rf ./onos-2.5.8/apps/org.onosproject.gui/ && \
-        rm -rf ./onos-2.5.8/apache-karaf-4.2.14/system/org/onosproject/onos-web-gui/ && \
-        mkdir ./onos-2.5.8/apps/org.onosproject.gui/ && \
-        cp -vrf org.onosproject.gui.oar ./onos-2.5.8/apps/org.onosproject.gui/ && \
-        cd ./onos-2.5.8/apps/org.onosproject.gui/ && \
-        unzip org.onosproject.gui.oar && \
-        touch ./active && \
-        cp -vrf ./m2/org/onosproject/* ../../apache-karaf-4.2.14/system/org/onosproject/ && \
-        cd ../../../ && \
         
         mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jre11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
         mv ./onos-2.5.8/ ./onos_out/ && \
         pwd && \
         ls -al ./onos_out/
-        
+
+
+
+
+# rm -rf ./onos-2.5.8/apps/org.onosproject.gui/ && \
+# rm -rf ./onos-2.5.8/apache-karaf-4.2.14/system/org/onosproject/onos-web-gui/ && \
+# mkdir ./onos-2.5.8/apps/org.onosproject.gui/ && \
+# cp -vrf org.onosproject.gui.oar ./onos-2.5.8/apps/org.onosproject.gui/ && \
+# cd ./onos-2.5.8/apps/org.onosproject.gui/ && \
+# unzip org.onosproject.gui.oar && \
+# touch ./active && \
+# cp -vrf ./m2/org/onosproject/* ../../apache-karaf-4.2.14/system/org/onosproject/ && \
+# cd ../../../ && \
+
 # wget https://cdn.azul.com/zulu/bin/zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz
 # tar zxvf zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz
 # mv ./zulu11.37.17-ca-jdk11.0.6-linux_x64/ ./onos_out/matched_jdk/
