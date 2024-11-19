@@ -62,6 +62,8 @@ RUN apt-get update && apt-get install -y git wget zip wget tar build-essential p
         tar zxvf onos.tar.gz && \
         tar zxvf zulu11.37.17-ca-jre11.0.6-linux_x64.tar.gz && \
         sed -i 's/gui2/gui/g' ./onos-2.5.8/bin/onos-service && \
+
+        touch ./onos-2.5.8/apps/org.onosproject.ONOS_Integration_Service/active && \
         
         mkdir ./onos_out/ && \
         mv ./zulu11.37.17-ca-jre11.0.6-linux_x64/ ./onos_out/matched_jdk/ && \
