@@ -1,5 +1,7 @@
 # ONOS_TopologyShow_ChineseMap
 
+[![Docker Image Publish](https://github.com/MaoJianwei/ONOS_TopologyShow_ChineseMap/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/MaoJianwei/ONOS_TopologyShow_ChineseMap/actions/workflows/docker-publish.yml)
+
 This project integrates these projects to build a digital map for network:
 * [ONOS_with_China_Map](https://github.com/MaoJianwei/ONOS_with_China_Map)
 * [ONOS_Integration_Service](https://github.com/MaoJianwei/ONOS_Integration_Service)
